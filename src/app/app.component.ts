@@ -13,12 +13,14 @@ import { ComponentFactoryResolver } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
   title = 'Chat Bot Application';
   private apiUrl = 'https://www.personalityforge.com/api/chat';
+  dataToBePassed = {
+    data : ''
+  }
   
   constructor(
     private http : Http,
@@ -30,6 +32,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
+
   }
 
   sendMessageToChatServer(userMsg){
@@ -55,6 +58,9 @@ export class AppComponent implements OnInit{
           <p>${message}</p>
 
         </div>`;
+        this.dataToBePassed={
+          data: data
+        }
         this.addComponent();
       }
   }

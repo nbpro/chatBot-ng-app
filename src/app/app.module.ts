@@ -6,6 +6,7 @@ import { Route, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { MessageComponent } from './message/message.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MessageComponent } from './message/message.component';
   imports: [
     BrowserModule,
     HttpModule,
+    CommonModule,
     RouterModule,
     RouterModule.forRoot([{ path: "", component: AppComponent}])
   ],

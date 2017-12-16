@@ -1,4 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { SimpleChange } from '@angular/core/src/change_detection/change_detection_util';
 
 @Component({
   selector: 'app-message',
@@ -10,9 +12,17 @@ export class MessageComponent implements OnInit {
   _ref:any;   
   constructor() { }
 
-  @Input() data;
+  @Input() childData;
+  private _name;
   ngOnInit() {
-    console.log(this.data);
+    console.log(this.childData);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const name: SimpleChange = changes.childData;
+    console.log('prev value: ', name.previousValue);
+    console.log('got name: ', name.currentValue);
+    this._name = name.currentValue;
   }
   removeObject(){
     this._ref.destroy();
