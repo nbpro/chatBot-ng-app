@@ -5,10 +5,12 @@ import { Route, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -17,6 +19,7 @@ import { AppService } from './app.service';
     RouterModule.forRoot([{ path: "", component: AppComponent}])
   ],
   providers: [AppService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[MessageComponent]
 })
 export class AppModule { }

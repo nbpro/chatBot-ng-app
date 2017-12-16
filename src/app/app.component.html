@@ -1,4 +1,4 @@
-<div id="live-chat">
+<div id="live-chat" #parent>
   <header class="clearfix">
     
     <a href="#" class="chat-close">x</a>
@@ -10,8 +10,7 @@
   </header>
 
   <div class="chat">
-    
-    
+      <ng-template #message></ng-template>    
 
     <p class="chat-feedback">Your partner is typing…</p>
 
