@@ -10,11 +10,14 @@
   </header>
 
   <div class="chat">
-      <app-message [childData]="dataToBePassed"></app-message>    
+    
+    
+    <div class="chat-history">
+        <app-message [childData]="dataToBePassed"></app-message>
+    </div>    
 
     <p class="chat-feedback">Your partner is typing…</p>
 
-    <form>
 
       <fieldset>
         
@@ -24,7 +27,6 @@
 
       </fieldset>
 
-    </form>
 
   </div> <!-- end chat -->
 

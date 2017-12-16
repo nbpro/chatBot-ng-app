@@ -29,13 +29,11 @@ export class AppService {
     sendMessageToChatBot(message){
         let userMessage = message ? message : this.message;
         const apiUrl:string = `${this.baseUrl}?apiKey=${this.apiKey}&message=${userMessage}&chatBotID=${this.chatBotId}&externalID=${this.externalId}`
-        console.log(apiUrl);
         return this.http.get(apiUrl).map(this.extractData)
         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     extractData(res){
-        console.log(res.json());
         return res.json();
     }
     addDynamicComponent() {

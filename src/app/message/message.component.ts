@@ -13,18 +13,14 @@ export class MessageComponent implements OnInit {
   constructor() { }
 
   @Input() childData;
-  private _name;
+  @Input() chatData;
   ngOnInit() {
     console.log(this.childData);
   }
 
   ngOnChanges(changes: SimpleChanges) {
     const name: SimpleChange = changes.childData;
-    console.log('prev value: ', name.previousValue);
-    console.log('got name: ', name.currentValue);
-    this._name = name.currentValue;
+    this.chatData = name.currentValue;
+    console.log(this.chatData);
   }
-  removeObject(){
-    this._ref.destroy();
-  }  
 }

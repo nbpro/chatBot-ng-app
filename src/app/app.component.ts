@@ -19,16 +19,20 @@ export class AppComponent implements OnInit{
   title = 'Chat Bot Application';
   private apiUrl = 'https://www.personalityforge.com/api/chat';
   dataToBePassed = {
-    data : ''
+    userMsg: '',
+    userName : '',
+    botName :'',
+    botMsg:''
   }
+  private userMsg:string='';
   
   constructor(
     private http : Http,
     private router : Router,
     private appService: AppService,
-    private _cfr: ComponentFactoryResolver
+    private _cfr: ComponentFactoryResolver,
   ){
-    console.log("inside app constructor--- i am intialisde");
+    console.log("inside app constructor");
   }
 
   ngOnInit(){
@@ -36,6 +40,7 @@ export class AppComponent implements OnInit{
   }
 
   sendMessageToChatServer(userMsg){
+    this.userMsg = userMsg;
     let returnedData = this.appService.sendMessageToChatBot(userMsg).subscribe((returnedData)=>{
       this.constructChatMessageFromBot(returnedData);
     })
@@ -59,7 +64,10 @@ export class AppComponent implements OnInit{
 
         </div>`;
         this.dataToBePassed={
-          data: data
+          userMsg : `${this.userMsg}`,
+          userName : 'Neerajpro',
+          botName :`${botName}`,
+          botMsg:`${message}`
         }
         this.addComponent();
       }
