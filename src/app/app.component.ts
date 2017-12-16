@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { AppService } from './app.service';
+import { Input } from '@angular/core/src/metadata/directives';
 
 @Component({
   selector: 'app-root',
@@ -20,13 +21,12 @@ export class AppComponent implements OnInit{
     private appService: AppService){
         console.log("inside app constructor--- i am intialisde");
   }
+
   ngOnInit(){
-    this.sendMessageToChatServer();
   }
 
-  sendMessageToChatServer(){
-    const tempMsg:string = `dummy message`;
-    const returnedData = this.appService.sendMessageToChatBot(tempMsg).subscribe();
+  sendMessageToChatServer(userMsg){
+    const returnedData = this.appService.sendMessageToChatBot(userMsg).subscribe();
     console.log(returnedData);
   }
 }

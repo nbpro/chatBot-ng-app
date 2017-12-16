@@ -15,11 +15,12 @@
 
     <p class="chat-feedback">Your partner is typing…</p>
 
-    <form action="#" method="post">
+    <form>
 
       <fieldset>
         
-        <input type="text" placeholder="Type your message…" autofocus>
+        <input type="text" placeholder="Type your message…" value=""autofocus #msgInput/>
+        <button type="button" (click)="sendMessageToChatServer(msgInput.value)">Send</button>
         <input type="hidden">
 
       </fieldset>
