@@ -21,6 +21,5 @@ export class MessageComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     const name: SimpleChange = changes.childData;
     this.chatData = name.currentValue;
-    console.log(this.chatData);
   }
 }

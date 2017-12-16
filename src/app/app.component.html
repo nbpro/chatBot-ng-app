@@ -16,15 +16,13 @@
         <app-message [childData]="dataToBePassed"></app-message>
     </div>    
 
-    <p class="chat-feedback">Your partner is typing…</p>
+    <!-- <p class="chat-feedback">Your partner is typing…</p> -->
 
 
       <fieldset>
-        
-        <input type="text" placeholder="Type your message…" value=""autofocus #msgInput/>
+        <input type="text" ng-model="msgInput.value" placeholder="Type your message…" value="" autofocus #msgInput/>
         <button type="button" (click)="sendMessageToChatServer(msgInput.value)">Send</button>
-        <input type="hidden">
-
+        <!-- <input type="hidden"> -->
       </fieldset>
 
 

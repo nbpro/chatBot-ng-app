@@ -18,13 +18,12 @@ import { ComponentFactoryResolver } from '@angular/core';
 export class AppComponent implements OnInit{
   title = 'Chat Bot Application';
   private apiUrl = 'https://www.personalityforge.com/api/chat';
-  dataToBePassed = {
-    userMsg: '',
-    userName : '',
-    botName :'',
-    botMsg:''
-  }
   private userMsg:string='';
+  dataToBePassed = {
+    name : `${this.userMsg}`,
+    message  : 'Neerajpro',
+    imgSrc : 'http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f321?s=32'
+  }
   
   constructor(
     private http : Http,
@@ -41,6 +40,15 @@ export class AppComponent implements OnInit{
 
   sendMessageToChatServer(userMsg){
     this.userMsg = userMsg;
+     // pass user input data to component
+     this.dataToBePassed = {
+      message : `${this.userMsg}`,
+      name  : 'Neerajpro',
+      imgSrc :`http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f321?s=32`
+    }
+  // call the coponent to show user data
+     this.addComponent();
+
     let returnedData = this.appService.sendMessageToChatBot(userMsg).subscribe((returnedData)=>{
       this.constructChatMessageFromBot(returnedData);
     })
@@ -50,25 +58,12 @@ export class AppComponent implements OnInit{
       if(data && data['success']){
         let botName = data['message'] && data['message']['chatBotName'];
         let message = data['message'] && data['message']['message'];
-        let chatContent = `<div class="chat-message clearfix">
-        
-        <img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
-
-        <div class="chat-message-content clearfix">
-          
-          <span class="chat-time">13:37</span>
-
-          <h5>${botName}</h5>
-
-          <p>${message}</p>
-
-        </div>`;
         this.dataToBePassed={
-          userMsg : `${this.userMsg}`,
-          userName : 'Neerajpro',
-          botName :`${botName}`,
-          botMsg:`${message}`
+          name :`${botName}`,
+          message:`${message}`,
+          imgSrc: `http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32`
         }
+        // call the component to add bot data
         this.addComponent();
       }
   }
