@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { MessageComponent } from './message/message.component';
 import { CommonModule } from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpModule,
     CommonModule,
     RouterModule,

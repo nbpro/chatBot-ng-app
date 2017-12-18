@@ -26,6 +26,7 @@ export class AppComponent implements OnInit{
   title = 'Chat Bot Application';
   private apiUrl = 'https://www.personalityforge.com/api/chat';
   private userMsg:string='';
+  inputValue:string = '';
 
   dataToBePassed = {
     name : `${this.userMsg}`,
@@ -48,6 +49,8 @@ export class AppComponent implements OnInit{
   }
 
   sendMessageToChatServer(userMsg){
+    //empty the input field
+    this.inputValue = null;
     this.userMsg = userMsg;
      // pass user input data to component
      this.dataToBePassed = {

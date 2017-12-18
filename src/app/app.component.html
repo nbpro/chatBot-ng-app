@@ -11,14 +11,15 @@
 
   <div class="chat">
     
-    <div class="chat-history" #parent>
+    <div class="chat-history">
+      <div #parent></div>
     </div>    
 
     <!-- <p class="chat-feedback">Your partner is typing…</p> -->
 
 
       <fieldset>
-        <input type="text" ng-model="msgInput.value"  placeholder="Type your message…" value="" autofocus #msgInput/>
+        <input type="text" [(ngModel)]="inputValue"  (keyup.enter)="sendMessageToChatServer(msgInput.value)" placeholder="Type your message…" value="" autofocus #msgInput/>
         <button type="button" class="submit-button" (click)="sendMessageToChatServer(msgInput.value)">Send</button>
         <!-- <input type="hidden"> -->
       </fieldset>
