@@ -26,6 +26,7 @@ export class AppComponent implements OnInit{
   title = 'Chat Bot Application';
   private apiUrl = 'https://www.personalityforge.com/api/chat';
   private userMsg:string='';
+
   dataToBePassed = {
     name : `${this.userMsg}`,
     message  : 'Neerajpro',
@@ -82,8 +83,8 @@ export class AppComponent implements OnInit{
 
   addComponent(){    
     let comp = this._cfr.resolveComponentFactory(MessageComponent);
-    let expComponent = this.parent.createComponent(comp);
-    expComponent.instance._ref = expComponent;
+        let expComponent = this.parent.createComponent(comp);
+        expComponent.instance._ref = this.dataToBePassed;
   }
 
   

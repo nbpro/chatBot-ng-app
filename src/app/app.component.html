@@ -1,4 +1,4 @@
-<div id="live-chat"#parent>
+<div id="live-chat">
   <header class="clearfix">
     
     <a href="#" class="chat-close">x</a>
@@ -11,12 +11,7 @@
 
   <div class="chat">
     
-    <!-- <div>
-      <ng-template #parent>
-      </ng-template>
-    </div> -->
-    <div class="chat-history">
-        <app-message [childData]="dataToBePassed">Loading</app-message>
+    <div class="chat-history" #parent>
     </div>    
 
     <!-- <p class="chat-feedback">Your partner is typing…</p> -->

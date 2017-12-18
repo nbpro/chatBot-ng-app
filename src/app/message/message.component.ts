@@ -9,7 +9,7 @@ import { ViewEncapsulation } from '@angular/core';
   styleUrls: ['./message.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class MessageComponent implements OnChanges {
+export class MessageComponent implements OnInit {
 
   _ref:any;   
   constructor() { }
@@ -17,11 +17,7 @@ export class MessageComponent implements OnChanges {
   @Input() childData;
   @Input() chatData;
   ngOnInit() {
-    console.log(this.childData);
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    const name: SimpleChange = changes.childData;
-    this.chatData = name.currentValue;
+    this.chatData = this._ref;
+    console.log(this._ref);
   }
 }
