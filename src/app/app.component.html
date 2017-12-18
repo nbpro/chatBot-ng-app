@@ -1,4 +1,4 @@
-<div id="live-chat" #parent>
+<div id="live-chat"#parent>
   <header class="clearfix">
     
     <a href="#" class="chat-close">x</a>
@@ -11,17 +11,20 @@
 
   <div class="chat">
     
-    
+    <!-- <div>
+      <ng-template #parent>
+      </ng-template>
+    </div> -->
     <div class="chat-history">
-        <app-message [childData]="dataToBePassed"></app-message>
+        <app-message [childData]="dataToBePassed">Loading</app-message>
     </div>    
 
     <!-- <p class="chat-feedback">Your partner is typing…</p> -->
 
 
       <fieldset>
-        <input type="text" ng-model="msgInput.value" placeholder="Type your message…" value="" autofocus #msgInput/>
-        <button type="button" (click)="sendMessageToChatServer(msgInput.value)">Send</button>
+        <input type="text" ng-model="msgInput.value"  placeholder="Type your message…" value="" autofocus #msgInput/>
+        <button type="button" class="submit-button" (click)="sendMessageToChatServer(msgInput.value)">Send</button>
         <!-- <input type="hidden"> -->
       </fieldset>
 

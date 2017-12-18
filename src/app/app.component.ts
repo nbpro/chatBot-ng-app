@@ -9,11 +9,18 @@ import { MessageComponent } from './message/message.component';
 import { Inject} from '@angular/core'
 import { ViewChild } from '@angular/core';
 import { ComponentFactoryResolver } from '@angular/core';
+import { ApplicationRef } from '@angular/core';
+import { EmbeddedViewRef } from '@angular/core';
+import { ViewChildren } from '@angular/core';
+import { QueryList } from '@angular/core';
+import { ElementRef } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit{
   title = 'Chat Bot Application';
@@ -30,6 +37,7 @@ export class AppComponent implements OnInit{
     private router : Router,
     private appService: AppService,
     private _cfr: ComponentFactoryResolver,
+    private appRef: ApplicationRef
   ){
     console.log("inside app constructor");
   }
@@ -68,11 +76,16 @@ export class AppComponent implements OnInit{
       }
   }
 
-  @ViewChild('parent',{read:ViewContainerRef}) container:ViewContainerRef;
+  @ViewChild('parent',{read:ViewContainerRef})  parent:ViewContainerRef;
+  // @ViewChildren('parent',{read:ViewContainerRef})  container:QueryList<ElementRef>
+  // @ViewChildren('parent') container:QueryList<MessageComponent>;
 
   addComponent(){    
-    var comp = this._cfr.resolveComponentFactory(MessageComponent);
-    var expComponent = this.container.createComponent(comp);
+    let comp = this._cfr.resolveComponentFactory(MessageComponent);
+    let expComponent = this.parent.createComponent(comp);
     expComponent.instance._ref = expComponent;
   }
+
+  
+  
 }
