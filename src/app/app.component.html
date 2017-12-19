@@ -19,8 +19,8 @@
 
 
       <fieldset>
-        <input type="text" [(ngModel)]="inputValue"  (keyup.enter)="sendMessageToChatServer(msgInput.value)" placeholder="Type your message…" value="" autofocus #msgInput/>
-        <button type="button" class="submit-button" (click)="sendMessageToChatServer(msgInput.value)">Send</button>
+        <input type="text" [(ngModel)]="inputValue"  (keyup.enter)="sendMessageToChatServer(msgInput.value)" placeholder="Type your message and press enter" value="" autofocus #msgInput/>
+        <!-- <button type="button" class="submit-button" (click)="sendMessageToChatServer(msgInput.value)">Send</button> -->
         <!-- <input type="hidden"> -->
       </fieldset>
 
