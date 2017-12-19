@@ -9,7 +9,7 @@
 
 <div class="chat-message-content clearfix">
   
-  <!-- <span class="chat-time">13:37</span> -->
+  <span class="chat-time">{{chatData?.currentTime | date : 'mediumTime'}}</span>
 
   <h5>{{chatData?.name}}</h5>
 

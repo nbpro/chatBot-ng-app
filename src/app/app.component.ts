@@ -31,7 +31,8 @@ export class AppComponent implements OnInit{
   dataToBePassed = {
     name : `${this.userMsg}`,
     message  : 'Neerajpro',
-    imgSrc : 'http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f321?s=32'
+    imgSrc : 'http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f321?s=32',
+    currentTime : `${Date.now()}`
   }
   
   constructor(
@@ -56,7 +57,8 @@ export class AppComponent implements OnInit{
      this.dataToBePassed = {
       message : `${this.userMsg}`,
       name  : 'Neerajpro',
-      imgSrc :`http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f321?s=32`
+      imgSrc :`http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f321?s=32`,
+      currentTime : `${Date.now()}`
     }
   // call the coponent to show user data
      this.addComponent();
@@ -73,7 +75,8 @@ export class AppComponent implements OnInit{
         this.dataToBePassed={
           name :`${botName}`,
           message:`${message}`,
-          imgSrc: `http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32`
+          imgSrc: `http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32`,
+          currentTime : `${Date.now()}`
         }
         // call the component to add bot data
         this.addComponent();
